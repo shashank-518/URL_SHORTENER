@@ -9,15 +9,6 @@ It allows users to generate short, shareable links and view analytics like total
 👉 **Hosted on Vercel:** [https://url-shortener-1-enhs.onrender.com/]
 ---
 
-## 🖼️ Preview
-
-### 🔹 Home Page
-![URL Shortener Home Page](./screenshots/home.png)
-
-### 🔹 Generated Short Link & Analytics
-![Short Link and Analytics](./screenshots/analytics.png)
-
----
 
 ## ⚙️ Features
 ✅ Shorten long URLs into tiny links  
@@ -38,30 +29,6 @@ It allows users to generate short, shareable links and view analytics like total
 | Hosting | Vercel / Render |
 
 ---
-
-## 📁 Folder Structure
-
-URLSHORTNER/
-│
-├── Controllers/
-│ └── url.js
-│
-├── Models/
-│ └── url.js
-│
-├── routes/
-│ ├── StaticRoutes.js
-│ └── Urlroutes.js
-│
-├── views/
-│ └── home.ejs
-│
-├── .env
-├── .gitignore
-├── index.js
-├── Connection.js
-├── package.json
-└── README.md
 
 
 
