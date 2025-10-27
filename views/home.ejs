@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #acb6e5);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+      }
+
+      h1 {
+        color: #222;
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        background: #ffffff;
+        padding: 25px 35px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        margin-bottom: 40px;
+        transition: transform 0.2s ease;
+      }
+
+      form:hover {
+        transform: translateY(-3px);
+      }
+
+      form div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      label {
+        font-weight: 600;
+        color: #333;
+        text-align: left;
+      }
+
+      input[type="text"] {
+        padding: 12px;
+        border-radius: 10px;
+        border: 1.5px solid #ccc;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+      }
+
+      button {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        color: #fff;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(90deg, #0056b3, #0088cc);
+        transform: translateY(-2px);
+      }
+
+      p {
+        margin-top: 20px;
+        font-size: 1rem;
+        text-align: center;
+        background-color: #ffffff;
+        padding: 12px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      hr {
+        margin: 50px 0 25px;
+        border: 0;
+        border-top: 2px solid rgba(255, 255, 255, 0.5);
+        width: 80%;
+      }
+
+      table {
+        width: 90%;
+        max-width: 800px;
+        border-collapse: collapse;
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      th {
+        background: linear-gradient(90deg, #007bff, #00c6ff);
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f8f9ff;
+      }
+
+      tr:hover {
+        background-color: #eef3ff;
+        transition: background-color 0.3s ease;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        form {
+          width: 95%;
+        }
+
+        table {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>URL Shortener</h1>
+
+    <form method="post" action="/url">
+      <div>
+        <label for="url">Enter the URL</label>
+        <input
+          type="text"
+          id="url"
+          name="Url"
+          placeholder="https://www.example.com"
+          required
+        />
+        <button type="submit">Generate Short Link</button>
+      </div>
+    </form>
+
+    <% if (locals.id) { %>
+    <p>
+      ✅ Your shortened link:
+      <a href="http://localhost:8000/<%= id %>" target="_blank">
+        http://localhost:8000/<%= id %>
+      </a>
+    </p>
+    <% } %>
+
+    <hr />
+
+    <% if (locals.allLink) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Short ID</th>
+          <th>Redirect URL</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allLink.forEach((link, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= link.shortURl %></td>
+          <td><%= link.OrginalUrl %></td>
+          <td><%= link.History.length %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %>
+  </body>
+</html>
