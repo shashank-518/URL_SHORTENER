@@ -30,7 +30,7 @@ const urlSchema = new mongoose.Schema(
     createdBy: {
       type: mongoose.Schema.Types.ObjectId, // ✅ reference to User model
       ref: "User",
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
