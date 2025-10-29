@@ -6,7 +6,7 @@ It allows users to generate short, shareable links and view analytics like total
 ---
 
 ## 🚀 Live Demo
-👉 **Hosted on Vercel:** [https://url-shortener-m6vxb4bpr-shashanks-projects-374aa3b7.vercel.app/](https://url-shortener-m6vxb4bpr-shashanks-projects-374aa3b7.vercel.app/)
+👉 **Hosted on Vercel:** [https://url-shortener-tawny-mu.vercel.app/](https://url-shortener-tawny-mu.vercel.app/)
 ---
 
 
